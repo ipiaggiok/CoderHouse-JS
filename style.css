@@ -19,3 +19,36 @@ h2 {
 p {
   color: white;
 }
+
+input {
+  font-size: 20px;
+  border-radius: 1.2rem;
+  padding-left: 1rem;
+}
+
+.button {
+  margin: 1rem;
+  border-radius: 1.2rem;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.saludo {
+  text-align: center;
+}
+
+.menu {
+  text-align: center;
+}
+
+.card-text {
+  color: black;
+}
+
+.card-title {
+  text-transform: capitalize;
+}
+
+.col-sm-6 {
+  align-items: center;
+}
