@@ -35,6 +35,16 @@ input {
 
 .saludo {
   text-align: center;
+  font-size: 2rem;
+}
+
+.cNombre {
+  font-size: 5rem;
+  padding-top: 2rem;
+}
+
+.nn {
+  display: none;
 }
 
 .menu {
@@ -49,6 +59,19 @@ input {
   text-transform: capitalize;
 }
 
+.row {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 2rem;
+}
 .col-sm-6 {
   align-items: center;
+}
+
+.card {
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.1);
 }

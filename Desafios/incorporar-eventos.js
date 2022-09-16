@@ -49,23 +49,30 @@ const carrito = [];
 
 // Bienvenida
 let nombre;
-let container = document.getElementById("containerId");
+const container = document.getElementById("containerId");
 const botonSaludo = document.getElementById("btnSaludo");
 botonSaludo.onclick = () => saludar();
 
+const inputName = document.getElementById("name");
+inputName.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    saludar();
+  }
+});
+
+const saludo = document.getElementById("saludoId");
 function saludar() {
-  const inputName = document.getElementById("name");
   nombre = inputName.value;
 
   if (nombre.length >= 3) {
-    const saludo = document.getElementById("saludoId");
+    saludo.className = "saludo cNombre";
     saludo.innerHTML = `<p>Bienvenido ${nombre}</p>`;
     menu1();
   } else {
     // alert("Error, ingrese su nombre.");
     Swal.fire({
       title: "Error",
-      text: "Por Favor, ingrese su nombre",
+      text: "Por favor, ingrese su nombre",
       icon: "error",
       confirmButtonText: "Aceptar",
       timer: 5000,
@@ -86,12 +93,13 @@ function menu1() {
   let botonCatalogo = document.getElementById("btnCatalogo");
   botonCatalogo.onclick = () => mostrarCatalogo();
   let botonBuscar = document.getElementById("btnBuscar");
-  botonBuscar.onclick = () => console.log("click buscar");
+  botonBuscar.onclick = () => buscar();
 }
 
 // Mostrar catalogo de Zapatillas
 
 const mostrarCatalogo = () => {
+  saludo.className = "saludo nn";
   let contenedor = document.getElementById("catalogo");
   zapatillas.forEach((producto) => {
     let catalogo = document.createElement("div");
@@ -111,7 +119,22 @@ const mostrarCatalogo = () => {
   menuBotones.innerHTML = `<button id="btnBuscar" class="button">Buscar</button>`;
   let botonBuscar = document.getElementById("btnBuscar");
   botonBuscar.onclick = () =>
-    alert("Sección en mantenimiento. Disculpe las molestias.");
+    Swal.fire({
+      title: "Area en construccion",
+      text: "Disculpe las molestias.",
+      confirmButtonText: "Aceptar",
+      timer: 5000,
+      timerProgressBar: true,
+    });
+};
+
+const buscar = () => {
+  saludo.className = "saludo nn";
+  let menu = document.querySelector(".menu");
+  menu.innerHTML = `<button id="btnCatalogo" class="button">Ver Catálogo</button>`;
+  // let contenedor = document.getElementById("catalogo");
+  catalogo.innerHTML = `<input id="buscarZapas" type="text" placeholder="Ingrese Marca/Modelo"/>
+  <button id="btnBuscar" class="button">Buscar</button>`;
 };
 
 // CODIGO DE DESAFIO ANTERIOR.
