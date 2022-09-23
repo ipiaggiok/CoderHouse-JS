@@ -63,6 +63,8 @@ input {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 2rem;
+  margin: 0 2rem 2rem 2rem;
+  justify-content: center;
 }
 .col-sm-6 {
   align-items: center;
@@ -73,5 +75,10 @@ input {
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
+}
+
+.tituloModel {
+  display: flex;
+  justify-content: space-between;
 }
