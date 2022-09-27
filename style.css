@@ -82,3 +82,29 @@ input {
   display: flex;
   justify-content: space-between;
 }
+
+#buscarZapas {
+  font-size: 16px;
+  border-radius: 10px;
+}
+
+#catalogo {
+  display: grid;
+  align-items: center;
+}
+
+.bi-cart3 {
+  color: rgb(206, 206, 206);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.numero {
+  color: #f50606;
+}
+
+.conCarrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
