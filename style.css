@@ -1,6 +1,11 @@
 body {
-  background-color: rgb(95, 94, 94);
   font-family: "Lato", sans-serif;
+  background: rgb(85, 85, 85);
+  background: linear-gradient(
+    129deg,
+    rgba(85, 85, 85, 1) 32%,
+    rgba(213, 213, 213, 1) 100%
+  );
 }
 
 h1,
