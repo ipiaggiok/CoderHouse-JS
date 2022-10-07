@@ -21,8 +21,6 @@ c8-DOM.js
 c9-Events.js
 c10-Storage-JSON.js
 c11-Workshop.js
-package-lock.json
-package.json
 node_modules/.package-lock.json
 node_modules/bootstrap-icons/bootstrap-icons.svg
 node_modules/bootstrap-icons/LICENSE.md

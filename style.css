@@ -113,3 +113,13 @@ input {
   justify-content: space-between;
   align-items: center;
 }
+
+.navbar {
+  width: 100%;
+}
+
+/* .pop {
+  color: #212529;
+  font-size: 15px;
+  position: absolute;
+} */
