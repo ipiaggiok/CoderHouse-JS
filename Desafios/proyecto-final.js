@@ -63,8 +63,6 @@ const searchWord = () => {
   };
 };
 
-const zapatillas = () => {};
-
 const findproduct = (marca) => {
   console.log(marca);
   fetch("Desafios/productos.json")
@@ -151,7 +149,6 @@ const showModalProducts = (index) => {
 };
 
 // funciones de agregar productos al carrito
-let carrito = [];
 
 const agregarAlCarrito = (i) => {
   fetch("Desafios/productos.json")
@@ -476,5 +473,6 @@ const checkStorage = () => {
   cartBadge();
 };
 
+let carrito = [];
 checkStorage();
 mostrarCatalogo();
