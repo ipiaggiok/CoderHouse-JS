@@ -19,6 +19,7 @@ iconoCarrito.setAttribute("data-bs-toggle", "modal");
 iconoCarrito.setAttribute("data-bs-target", "#cartModal");
 iconoCarrito.onclick = () => showModalCart();
 
+// cargar catálogo al iniciar la app
 const mostrarCatalogo = () => {
   fetch("Desafios/productos.json")
     .then((res) => res.json())
@@ -44,6 +45,7 @@ const mostrarCatalogo = () => {
   searchWord();
 };
 
+// funciones de busqueda de productos
 const searchWord = () => {
   searchInput.addEventListener("keypress", function (e) {
     e.key === "Enter" ? sigaSiga() : null;
@@ -130,6 +132,7 @@ const findproduct = (marca) => {
     });
 };
 
+// Mostrar card de producto seleccionado del catálogo
 const showModalProducts = (index) => {
   modalProdBtnAñadir.onclick = () => {
     agregarAlCarrito(index);
@@ -147,6 +150,7 @@ const showModalProducts = (index) => {
   searchWord();
 };
 
+// funciones de agregar productos al carrito
 let carrito = [];
 
 const agregarAlCarrito = (i) => {
@@ -186,6 +190,7 @@ const cartBadge = () => {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
+// mostrar carrito
 const showModalCart = () => {
   modalCartTitle.innerHTML = `Carrito de compras`;
   if (carrito.length === 0) {
@@ -234,6 +239,7 @@ const showModalCart = () => {
 };
 
 let totalCarrito = 0;
+
 const deleteProduct = (index) => {
   if (carrito[index].cantidad == 1) {
     carrito.splice(index, 1);
@@ -256,6 +262,7 @@ const deleteProduct = (index) => {
   }
 };
 
+// formulario de finalizacion de compra
 const checkOut = () => {
   let btnFinalizarCompra = document.querySelector("#modalCartBtnAñadir");
   btnFinalizarCompra.style.visibility = "hidden";
@@ -330,6 +337,8 @@ const checkOut = () => {
         </form>
       `;
   modalCartFooter.innerHTML = ``;
+
+  //funciones de envio de email
   const btn = document.getElementById("button");
 
   document.getElementById("form").addEventListener("submit", function (event) {
@@ -353,6 +362,10 @@ const checkOut = () => {
   });
 };
 
+(function () {
+  emailjs.init("KJiT1nmVnNsvhhuNH");
+})();
+
 const validateForm = () => {
   ("use strict");
   const forms = document.querySelectorAll(".needs-validation");
@@ -366,7 +379,6 @@ const validateForm = () => {
           event.stopPropagation();
         } else {
           checkOutMessage();
-          sendEmail();
         }
 
         form.classList.add("was-validated");
@@ -405,30 +417,7 @@ const checkOutMessage = () => {
   document.querySelector("#btnSalir").style.visibility = "hidden";
 };
 
-(function () {
-  emailjs.init("KJiT1nmVnNsvhhuNH");
-})();
-
-const sendEmail = () => {
-  // const btn = document.getElementById("button");
-  // document.getElementById("form").addEventListener("submit", function (event) {
-  //   event.preventDefault();
-  //   btn.value = "Enviando...";
-  //   const serviceID = "default_service";
-  //   const templateID = "template_z38ti8f";
-  //   emailjs.sendForm(serviceID, templateID, this).then(
-  //     () => {
-  //       btn.value = "Send Email";
-  //       console.log("Sent!");
-  //     },
-  //     (err) => {
-  //       console.log(JSON.stringify(err));
-  //       btn.value = "Send Email";
-  //     }
-  //   );
-  // });
-};
-
+// reinicia la app al finalizar una compra
 const reloadPage = () => {
   catalogoContainer.innerHTML = "";
   mostrarCatalogo();
@@ -437,6 +426,7 @@ const reloadPage = () => {
   window.location.reload();
 };
 
+// alertas toast
 const toastifyAlertAdded = () => {
   Toastify({
     text: "Añadido al Carrito",
@@ -480,6 +470,7 @@ const toastifyAlertSearch = () => {
   }).showToast();
 };
 
+//controla el storage en busca de datos
 const checkStorage = () => {
   let carritoEnStorage = localStorage.getItem("carrito");
   carrito = JSON.parse(carritoEnStorage);
