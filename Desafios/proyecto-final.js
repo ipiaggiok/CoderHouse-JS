@@ -168,6 +168,8 @@ const agregarAlCarrito = (i) => {
     });
 };
 
+const carrito = [];
+
 const cartBadge = () => {
   let cantidadProductos = 0;
   carrito.forEach((e) => {
@@ -473,6 +475,5 @@ const checkStorage = () => {
   cartBadge();
 };
 
-let carrito = [];
 checkStorage();
 mostrarCatalogo();
