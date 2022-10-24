@@ -167,10 +167,13 @@ const agregarAlCarrito = (i) => {
       }
     });
 };
+let carrito = [];
 
 const cartBadge = () => {
+  let carritou = carrito;
+  console.log("carritou: ", carritou);
   let cantidadProductos = 0;
-  carrito.forEach((e) => {
+  carritou.forEach((e) => {
     cantidadProductos = cantidadProductos + e.cantidad;
   });
   iconoCarrito.innerHTML = `<span
@@ -473,6 +476,5 @@ const checkStorage = () => {
   cartBadge();
 };
 
-let carrito = [];
 checkStorage();
 mostrarCatalogo();
