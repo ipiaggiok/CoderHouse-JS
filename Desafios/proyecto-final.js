@@ -473,7 +473,6 @@ let carritoEnLS = JSON.parse(localStorage.getItem("carrito"));
 const checkStorage = () => {
   if (carritoEnLS) {
     carrito = carritoEnLS;
-    console.log(typeof carrito);
   }
 
   mostrarCatalogo();
