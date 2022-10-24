@@ -238,9 +238,8 @@ const showModalCart = () => {
   modalCartBtnAñadir.onclick = () => checkOut();
 };
 
-let totalCarrito = 0;
-
 const deleteProduct = (index) => {
+  let totalCarrito = 0;
   if (carrito[index].cantidad == 1) {
     carrito.splice(index, 1);
     let cardToDelete = document.querySelector(`.cardInCart${index}`).remove();
@@ -477,5 +476,5 @@ const checkStorage = () => {
   cartBadge();
 };
 
-mostrarCatalogo();
 checkStorage();
+mostrarCatalogo();
