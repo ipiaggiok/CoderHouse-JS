@@ -474,8 +474,8 @@ const toastifyAlertSearch = () => {
 const checkStorage = () => {
   let carritoEnStorage = localStorage.getItem("carrito");
   carrito = JSON.parse(carritoEnStorage);
+  cartBadge();
 };
 
-checkStorage();
-cartBadge();
 mostrarCatalogo();
+checkStorage();
