@@ -114,7 +114,6 @@ const findproduct = (marca) => {
                 carrito[indexZapaEnCarrito].cantidad++;
                 cartBadge();
               }
-              // carrito.push(resultadosBusqueda[index]);
               console.log(carrito);
               toastifyAlertAdded();
               cartBadge();
@@ -167,13 +166,10 @@ const agregarAlCarrito = (i) => {
       }
     });
 };
-let carrito = [];
 
 const cartBadge = () => {
-  let carritou = carrito;
-  console.log("carritou: ", carritou);
   let cantidadProductos = 0;
-  carritou.forEach((e) => {
+  carrito.forEach((e) => {
     cantidadProductos = cantidadProductos + e.cantidad;
   });
   iconoCarrito.innerHTML = `<span
@@ -470,11 +466,18 @@ const toastifyAlertSearch = () => {
 };
 
 //controla el storage en busca de datos
+
+let carrito = [];
+let carritoEnLS = JSON.parse(localStorage.getItem("carrito"));
+
 const checkStorage = () => {
-  let carritoEnStorage = localStorage.getItem("carrito");
-  carrito = JSON.parse(carritoEnStorage);
+  if (carritoEnLS) {
+    carrito = carritoEnLS;
+    console.log(typeof carrito);
+  }
+
+  mostrarCatalogo();
   cartBadge();
 };
 
 checkStorage();
-mostrarCatalogo();
