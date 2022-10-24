@@ -169,6 +169,8 @@ const agregarAlCarrito = (i) => {
 };
 let carrito = [];
 
+const carrito = [];
+
 const cartBadge = () => {
   let carritou = carrito;
   console.log("carritou: ", carritou);
