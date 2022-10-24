@@ -31,6 +31,15 @@ input {
   padding-left: 1rem;
 }
 
+.titulo {
+  font-size: 2rem;
+  color: rgb(206, 206, 206);
+  text-decoration: underline;
+}
+.titulo:hover {
+  color: #8d8d8d;
+}
+
 .button {
   margin: 1rem;
   border-radius: 1.2rem;
@@ -77,15 +86,11 @@ input {
 
 .card {
   transition: transform 0.2s;
+  cursor: pointer;
 }
 
 .card:hover {
   transform: scale(1.03);
-}
-
-.tituloModel {
-  display: flex;
-  justify-content: space-between;
 }
 
 #buscarZapas {
@@ -104,6 +109,10 @@ input {
   cursor: pointer;
 }
 
+.bi-cart3:hover {
+  color: #8d8d8d;
+}
+
 .numero {
   color: #f50606;
 }
@@ -118,8 +127,19 @@ input {
   width: 100%;
 }
 
-/* .pop {
-  color: #212529;
-  font-size: 15px;
-  position: absolute;
-} */
+#badgee {
+  font-size: 0.7rem;
+}
+
+.translate-middle {
+  transform: translate(-52%, -91%) !important;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#validationCustom08 {
+  margin: 0 0 20px 0;
+}

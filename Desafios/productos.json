@@ -1,0 +1,62 @@
+[
+  {
+    "id": 10,
+    "marca": "Nike",
+    "modelo": "Air Force 1",
+    "precio": 44500,
+    "cantidad": 1,
+    "img1": "./img/Nike-AirForce1-1.webp",
+    "img2": "./img/Nike-AirForce1-2.webp",
+    "img3": "./img/Nike-AirForce1-3.webp"
+  },
+  {
+    "id": 20,
+    "marca": "Nike",
+    "modelo": "Air Max",
+    "precio": 57000,
+    "cantidad": 1,
+    "img1": "./img/Nike-Airmax-1.webp",
+    "img2": "./img/Nike-Airmax-2.webp",
+    "img3": "./img/Nike-Airmax-3.webp"
+  },
+  {
+    "id": 30,
+    "marca": "Adidas",
+    "modelo": "Superstar",
+    "precio": 32000,
+    "cantidad": 1,
+    "img1": "./img/Adidas-Superstar-1.webp",
+    "img2": "./img/Adidas-Superstar-2.webp",
+    "img3": "./img/Adidas-Superstar-3.webp"
+  },
+  {
+    "id": 40,
+    "marca": "Adidas",
+    "modelo": "AdiZero",
+    "precio": 54000,
+    "cantidad": 1,
+    "img1": "./img/Adidas-Adizero-1.webp",
+    "img2": "./img/Adidas-Adizero-2.webp",
+    "img3": "./img/Adidas-Adizero-3.webp"
+  },
+  {
+    "id": 50,
+    "marca": "Puma",
+    "modelo": "Blaze",
+    "precio": 29000,
+    "cantidad": 1,
+    "img1": "./img/Puma-TRCblaze-1.webp",
+    "img2": "./img/Puma-TRCblaze-2.webp",
+    "img3": "./img/Puma-TRCblaze-3.webp"
+  },
+  {
+    "id": 60,
+    "marca": "Puma",
+    "modelo": "Classic",
+    "precio": 27000,
+    "cantidad": 1,
+    "img1": "./img/Puma-Classic-1.webp",
+    "img2": "./img/Puma-Classic-2.jpg",
+    "img3": "./img/Puma-Classic-3.jpg"
+  }
+]

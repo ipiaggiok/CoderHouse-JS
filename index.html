@@ -9,41 +9,241 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Lato:wght@300&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200&family=Lato:wght@300&display=swap"
+      rel="stylesheet"
     />
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div id="containerId" class="container">
-      <nav class="navbar">
-         <div id="tituloContainer">
-          <h1 class="titulo" id="tituloId">CoderShoes</h1>
+      <nav class="navbar" style="background-color: #bebebe00">
+        <div class="container-fluid">
+          <a class="navbar-brand titulo" href="#">CoderShoes</a>
+          <div class="d-flex" role="search">
+            <input
+              id="buscarZapas"
+              class="form-control me-2"
+              placeholder="Nike/Puma/Adidas"
+            />
+            <button id="btnBuscar" class="btn btn-light">Buscar</button>
+          </div>
+          <div class="iconCarrito">
+            <i class="bi bi-cart3"></i>
+          </div>
         </div>
       </nav>
-     
       
-      <div id="saludoId" class="saludo">
-        <p>Por favor, ingrese su nombre.</p>
-        <input id="name" type="text" placeholder="Nombre"/> </br>
-        <button id="btnSaludo" type="submit" class="button">Continuar</button>
+      
+
+      <div class="row" id="catalogo"></div>
+      <div id="products-Modal">
+        <div
+          class="modal fade"
+          id="productModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalProdTitle">...</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modalProd-body">
+                <div
+                  id="carouselExampleIndicators"
+                  class="carousel slide"
+                  data-bs-ride="carousel"
+                >
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExampleIndicators"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img
+                        id="modalProdImg1"
+                        src=""
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        id="modalProdImg2"
+                        src=""
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item">
+                      <img
+                        id="modalProdImg3"
+                        src=""
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleIndicators"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalProdFooter">Precio</h5>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Salir
+                </button>
+                <button
+                  id="modalProdBtnAñadir"
+                  type="button"
+                  class="btn btn-light"
+                >
+                  Añadir al carrito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <div class="row" id="catalogo"></div>      
+      <div id="cart-Modal">
+        <div
+          class="modal fade"
+          id="cartModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCartTitle">Carrito de compras</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modalCart-body text-center">
+                <h5>No hay productos en su carrito.</h5>
+              </div>
+              <div class="modal-header">
+                <h5 class="modal-title" id="modalCartFooter"></h5>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  id="btnSalir"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Salir
+                </button>
+                <button
+                  id="modalCartBtnAñadir"
+                  type="button"
+                  class="btn btn-light"
+                >
+                  Finalizar compra
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
 
-    <!-- Toastify Js Library -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- EmailJS Library -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <!-- ToastifyJS Library -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
     <!-- SweetAlert Library -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Bootstrap JavaScript Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <!-- scripts propios -->
-    <script src="./Desafios/clase15-AJAXyFetch.js" type="module"></script>
-    <!-- <script src="./componentes.js" type="module"></script> -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      type="text/javascript"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+    <!-- App -->
+    <script src="./Desafios/proyecto-final.js"></script>
+    
   </body>
 </html>

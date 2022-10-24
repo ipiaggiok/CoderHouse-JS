@@ -57,7 +57,6 @@ function menu1() {
 // const pushearProducto = () => {};
 
 // Mostrar catalogo de Zapatillas
-const titulo = document.getElementById("tituloContainer");
 let catalogoContainer = document.querySelector("#catalogo");
 
 const ocultarCositas = () => {
@@ -66,13 +65,20 @@ const ocultarCositas = () => {
   saludo.className = "saludo nn";
 };
 
+const addBtn = () => {
+  let cardBody = document.querySelector(".card-body");
+  let btnAgregar = document.createElement("a");
+  btnAgregar.classList.add("btn", "btn-primary");
+  btnAgregar.innerHTML = "Añadir al carrito";
+  cardBody.appendChild(btnAgregar);
+};
+
 const mostrarCatalogo = () => {
   ocultarCositas();
   fetch("Desafios/modulo1.json")
     .then((res) => res.json())
     .then((zapatillas) => {
       zapatillas.forEach((e, index) => {
-        console.log(e.modelo);
         let productCard = document.createElement("div");
         productCard.className = "col-sm-6";
         productCard.innerHTML = `
@@ -81,10 +87,15 @@ const mostrarCatalogo = () => {
                       <div class="card-body">
                           <h5 class="card-title">${e.marca} - ${e.modelo}</h5>
                           <p class="card-text">$${e.precio}</p>
-                            <a id="btn-añadir" class="btn btn-primary" onClick="agregarCarrito()">Añadir al carrito</a>
+                          <a id="btn-añadir" class="btn btn-primary">Añadir al carrito</a>
                        </div>
                   </div>`;
+        // productCard.onclick = () => {
+        //   agregarCarrito(index);
+        // };
+
         catalogoContainer.appendChild(productCard);
+        addBtn();
       });
     });
   mostrarCampoBuscar(document.querySelector(".navbar"));
@@ -95,42 +106,8 @@ const mostrarCatalogo = () => {
 
 const carrito = [];
 
-const agregarCarrito = () => {
-  console.log("funciona");
-  // const cartIndex = carrito.findIndex((e) => {
-  //   return e.id === zapatillas[indice].id;
-  // });
-  // if (cartIndex === -1) {
-  //   const addProduct = zapatillas[indice];
-  //   addProduct.cantidad = 1;
-  //   // carrito = [];
-  //   carrito.push(addProduct);
-  //   // toastifyAlert();
-  //   console.log("Zapa añadida");
-  // } else {
-  //   carrito[cartIndex].cantidad++;
-  //   // toastifyAlert();
-  //   console.log("Cantidad aumentada");
-  // }
-
-  // let añadirCarrito = document.querySelector(".btn-primary");
-  // for (var i = 0; i < añadirCarrito.length; i++) {
-  //   añadirCarrito[i].onclick = () => {
-  //     Toastify({
-  //       text: "Añadido al Carrito",
-  //       offset: {
-  //         x: 10,
-  //         y: 50,
-  //       },
-  //       style: {
-  //         background: "linear-gradient(to right, #a0a1a1, #303030",
-  //       },
-  //       duration: 1500,
-  //     }).showToast();
-
-  //     console.log(indice);
-  //   }; // Falta pushear elementos al carrito y modal carrito
-  // }
+const agregarCarrito = (index) => {
+  console.log(index);
 };
 
 const toastifyAlert = () => {
@@ -176,11 +153,6 @@ const carritoIcon = (apendearA) => {
 /* func display input y btn de buscar */
 
 const mostrarCampoBuscar = (apendearA) => {
-  let barraBusqueda = document.createElement("div");
-  barraBusqueda.className = "barraBuqueda";
-  barraBusqueda.innerHTML = `<input id="buscarZapas" type="text" placeholder="Nike/Puma/Adidas"/>
-  <button id="btnBuscar" class="button">Buscar</button>`;
-  apendearA.appendChild(barraBusqueda);
   let botonBuscar = document.getElementById("btnBuscar");
   const inputZapas = document.getElementById("buscarZapas");
   inputZapas.addEventListener("keypress", function (e) {
@@ -204,8 +176,8 @@ const mostrarCampoBuscar = (apendearA) => {
                 <div class="card-body">
                     <h5 class="card-title">${producto.marca} - ${producto.modelo}</h5>
                     <p class="card-text">$${producto.precio}</p>
-                     <a class="btn btn-primary">Añadir al carrito</a>
-                 </div>
+                    <a class="btn btn-primary">Añadir al carrito</a>
+                </div>
             </div>`;
         catalogoContainer.appendChild(catalogo);
       });
