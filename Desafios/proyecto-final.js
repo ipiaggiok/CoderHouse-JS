@@ -64,7 +64,6 @@ const searchWord = () => {
 };
 
 const findproduct = (marca) => {
-  console.log(marca);
   fetch("Desafios/productos.json")
     .then((res) => res.json())
     .then((zapatillas) => {
@@ -73,7 +72,6 @@ const findproduct = (marca) => {
         const resultadosBusqueda = zapatillas.filter((el) =>
           el.marca.toLowerCase().includes(marca)
         );
-        console.log(resultadosBusqueda);
         resultadosBusqueda.forEach((producto, index) => {
           let productCard = document.createElement("div");
           productCard.classList.add("card", "text-center");
@@ -87,7 +85,6 @@ const findproduct = (marca) => {
           productCard.setAttribute("data-bs-target", "#productModal");
 
           productCard.onclick = () => {
-            console.log(resultadosBusqueda[index].modelo);
             modalProdTitle.innerHTML = `${resultadosBusqueda[index].marca} - ${resultadosBusqueda[index].modelo}`;
             modalProdImg1.setAttribute(
               "src",
@@ -114,7 +111,6 @@ const findproduct = (marca) => {
                 carrito[indexZapaEnCarrito].cantidad++;
                 cartBadge();
               }
-              console.log(carrito);
               toastifyAlertAdded();
               cartBadge();
             };
@@ -347,7 +343,7 @@ const checkOut = () => {
     emailjs.sendForm(serviceID, templateID, this).then(
       () => {
         btn.value = "Send Email";
-        console.log("Sent!");
+        console.log("Enviado!");
       },
       (err) => {
         console.log(JSON.stringify(err));
